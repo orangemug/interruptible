@@ -1,4 +1,7 @@
 # interruptible
+
+**Work in progress, the README might not match the code at this point**
+
 Schedule some tasks to happen for a length of time with priority behaviours, mainly aimed at a shared view with multiple controllers.
 
 Say what! Lets break it down a little bit. So we have some tasks which are basically just things which will in the future for some duration of time.
@@ -48,11 +51,13 @@ Get a JSON representation of the current scheduled tasks, useful for visualising
 
 
 ## Events
+The following events get fired
 
- * `empty` - The scheduler is empty
  * `added` - An item has been added to the scheduler (maybe in the future)
- * `running` - An item has started running for the first time
+ * `started` - An item has started running for the first time
+ * `interrupt` - An item has been interrupted
  * `removed` - An item has finished and being removed
+ * `empty` - The scheduler is empty, useful for triggering idle states in the scheduler
 
 
 ## Test
