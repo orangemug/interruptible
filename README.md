@@ -49,8 +49,14 @@ Get a JSON representation of the current scheduled tasks, useful for visualising
 
 ## Events
 
- * empty - The scheduler is empty
- * added - An item has been added to the scheduler (maybe in the future)
- * running - An item has started running for the first time
- * removed - An item has finished and being removed
+ * `empty` - The scheduler is empty
+ * `added` - An item has been added to the scheduler (maybe in the future)
+ * `running` - An item has started running for the first time
+ * `removed` - An item has finished and being removed
+
+
+## Test
+To run the tests
+
+    npm test
 
