@@ -34,13 +34,13 @@ You add these tasks to the scheduler and it'll run scheduling the underlying eve
 
 Lets explain the options above
 
- * name - just a description for debugging
- * cancelLower - on run cancel all tasks with a lower priority first
- * cancelSiblings - on run cancel all tasks with the same or lower priority
- * run.fn - the function to run
- * run.duration - how long to run it for 
- * interrupt.fn - the function on interrupt
- * interrupt.duration - how long to run the interrupt function for 
+ * `name` - just a description for debugging
+ * `cancelLower` - on run cancel all tasks with a lower priority first
+ * `cancelSiblings` - on run cancel all tasks with the same or lower priority
+ * `run.fn` - the function to run
+ * `run.duration` - how long to run it for 
+ * `interrupt.fn` - the function on interrupt
+ * `interrupt.duration` - how long to run the interrupt function for 
 
 Get a JSON representation of the current scheduled tasks, useful for visualising the tasks
 
