@@ -1,6 +1,8 @@
 var sinon  = require("sinon");
 var assert = require("assert");
 
+var size = require("lodash.size");
+
 var Interruptible = require("../");
 
 var testTasks = {
@@ -24,6 +26,7 @@ var testTasks = {
 
 
 describe('Interruptible', function() {
+
 	// TODO: Bad test
 	it('should add items', function() {
 		var s = new Interruptible;
@@ -35,20 +38,40 @@ describe('Interruptible', function() {
 
 	it("should interrupt task of a lower priority with .cancelLower", function() {
 		var s = new Interruptible;
-		assert.equal(spy.callCount, 1);
-		assert.equal(spy.calledWith, [2]);
+    var spy = sinon.spy(s, "_interruptTasks");
 
-		s.add(3, testTasks.norm);
+		s.add(3, testTasks.lower);
+
+		assert.equal(spy.callCount, 1);
+		assert(spy.calledWith(2));
+
+    s._interruptTasks.restore();
 	});
 
 	it("should interrupt task of a lower priority with .cancelSiblings", function() {
 		var s = new Interruptible;
+    var spy = sinon.spy(s, "_interruptTasks");
+
+		s.add(3, testTasks.siblings);
+
 		assert.equal(spy.callCount, 1);
-		assert.equal(spy.calledWith, [3]);
+		assert(spy.calledWith(3));
 
-		s.add(3, testTasks.norm);
+    s._interruptTasks.restore();
 	});
 
-	it("should remove internal queue when ", function() {
+	it("should remove internal queue when end is fired", function() {
+    // TODO
 	});
+
+	it("#_interruptTasks should call interrupt on each task in a lower priority queue", function() {
+    // TODO
+	});
+
+	it("#_loop should call 'exec' for each task", function() {
+		var s = new Interruptible;
+    s.add(1, testTasks.norm);
+
+  });
+
 });
