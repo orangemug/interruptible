@@ -1,7 +1,7 @@
 var sinon  = require("sinon");
 var assert = require("assert");
 
-var size = require("lodash.size");
+var size = require("lodash").size;
 
 var Interruptible = require("../");
 
